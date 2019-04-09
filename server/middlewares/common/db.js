@@ -1,46 +1,24 @@
 const Sequelize = require("sequelize");
 async function models_defined(swc){
-	swc.db.models.users = swc.db.seq.define("users", {
-		openid : {type : Sequelize.STRING(32)},
-		user_id : {type : Sequelize.STRING(32)}, //唯一ID
+	swc.db.models.pays = swc.db.seq.define("pays", {
+		out_trade_no : {type : Sequelize.STRING(32)},
+		openid : {type : Sequelize.TEXT()}, //唯一ID
 		nick_name : {type : Sequelize.STRING()}, //昵称
 		avatar_url : {type : Sequelize.STRING()}, //头像
 
-		mobile : {type : Sequelize.TEXT()},
-		name : {type : Sequelize.TEXT()},
+		time_end : {type : Sequelize.TEXT()}, //支付成功时间
 
-		create_by : {type : Sequelize.STRING(32)},
-		update_by : {type : Sequelize.STRING(32)},
-		create_at : {type : Sequelize.STRING()},
-		update_at : {type : Sequelize.STRING()},
-	})
-	swc.db.models.demos = swc.db.seq.define("demos", {
-		demo_id : {type : Sequelize.STRING(32)},
-		name : {type : Sequelize.TEXT()},
+		email : {type : Sequelize.TEXT()}, //留下的邮箱
+		name : {type : Sequelize.TEXT()}, //留下的姓名
+		message : {type : Sequelize.TEXT()}, //留言
 
-		create_by : {type : Sequelize.STRING(32)},
-		update_by : {type : Sequelize.STRING(32)},
-		create_at : {type : Sequelize.STRING()},
-		update_at : {type : Sequelize.STRING()},
-	})
-	swc.db.models.admins = swc.db.seq.define("admins", {
-		admin_id : {type : Sequelize.STRING(32)},
-		account : {type : Sequelize.STRING()},
-		password : {type : Sequelize.STRING(32)},
-		name : {type : Sequelize.STRING},
+		total_fee : {type : Sequelize.TEXT()}, //支付的金额
 
-		create_by : {type : Sequelize.STRING(32)},
-		update_by : {type : Sequelize.STRING(32)},
 		create_at : {type : Sequelize.STRING()},
-		update_at : {type : Sequelize.STRING()},
 	})
+	
 
 	//数据索引
-	swc.db.models.demos.belongsTo(swc.db.models.admins, {
-		foreignKey : 'create_by',
-		targetKey : 'admin_id',
-		as : 'admin'
-	})
 	// swc.db.models.childs.belongsTo(swc.db.models.parents, {
 	// 	foreignKey : "parent_id_in_child",
 	// 	targetKey : "parent_id",

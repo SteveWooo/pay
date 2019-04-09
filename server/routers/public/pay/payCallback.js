@@ -6,6 +6,11 @@ module.exports = async function(req, res, next){
 	}
 
 	console.log(query);
+	if(!swc.common.signer.checkSign(swc, query)){
+		console.log('sign error');
+		res.send('error');
+		return ;
+	}
 
 	//直接退出
 	res.send('success');

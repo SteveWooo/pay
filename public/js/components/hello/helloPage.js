@@ -23,9 +23,7 @@ Vue.component("hello", {
 
 		openWechatPay : function(options){
 			WeixinJSBridge.invoke('getBrandWCPayRequest', options.jsapi, function success(res){
-				if (res.err_msg == "get_brand_wcpay_request:ok") {
-                    WeixinJSBridge.call('closeWindow');
-                }
+				//开始轮询后台
 			})
 		},
 
