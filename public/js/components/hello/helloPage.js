@@ -43,7 +43,10 @@ Vue.component("hello", {
 				url : keke.config.baseUrl + '/pay/api/p/pay/get_sign?mchid=' + 
 					keke.config.mchid + '&total_fee=' +
 					that.data.panels.pay.form.total_fee + '&openid=' + 
-					keke.getQuery('openid'),
+					keke.getQuery('openid') + "&name=" + 
+					that.data.panels.pay.form.name + "&email=" + 
+					that.data.panels.pay.form.email + "&message=" +
+					that.data.panels.pay.form.message,
 				successFunction : function(res){
 					if(res.status == '2000'){
 						callback(res);
