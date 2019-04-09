@@ -84,6 +84,7 @@ Vue.component("hello", {
 						message : '支付成功'
 					})
 					//todo 刷新列表
+					that.getPaylistData();
 					that.switchPayPanel();
 					scope.waitting = false;
 				});
