@@ -154,7 +154,7 @@ Vue.component("hello", {
 				text-align:center;
 				background-color : #ef5350;
 				color : #fff;
-				font-size : 25px;
+				font-size : 20px;
 				height : 50px;
 				line-height : 50px;"
 
