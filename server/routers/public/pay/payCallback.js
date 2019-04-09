@@ -6,7 +6,6 @@ module.exports = async function(req, res, next){
 		return ;
 	}
 
-	console.log(query);
 	if(!swc.common.signer.checkSign(swc, {
 		query : query
 	})){
@@ -15,7 +14,24 @@ module.exports = async function(req, res, next){
 		return ;
 	}
 
-	console.log('success');
+	var pay = await req.swc.pay.getSign.findAndCountAll({
+		where : {
+			out_trade_no : query.out_trade_no
+		}
+	})
+
+	if(pay.count == 0){
+		res.send('error');
+		return ;
+	}
+
+	try{
+		await pay.rows[0].update({
+			payed : 1
+		})
+	}catch(e){
+		console.log(e);
+	}
 
 	//直接退出
 	res.send('success');

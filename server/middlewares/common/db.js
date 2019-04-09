@@ -3,8 +3,6 @@ async function models_defined(swc){
 	swc.db.models.pays = swc.db.seq.define("pays", {
 		out_trade_no : {type : Sequelize.STRING(32)},
 		openid : {type : Sequelize.TEXT()}, //唯一ID
-		nick_name : {type : Sequelize.STRING()}, //昵称
-		avatar_url : {type : Sequelize.STRING()}, //头像
 
 		time_end : {type : Sequelize.TEXT()}, //支付成功时间
 
@@ -13,6 +11,8 @@ async function models_defined(swc){
 		message : {type : Sequelize.TEXT()}, //留言
 
 		total_fee : {type : Sequelize.TEXT()}, //支付的金额
+
+		payed : {type : Sequelize.INTEGER()}, //是否已经完成支付
 
 		create_at : {type : Sequelize.STRING()},
 	})

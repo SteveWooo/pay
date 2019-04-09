@@ -1,6 +1,7 @@
 keke.leaves.hello = {
 	data : "hello world",
 	openid : "",
+	waitting : false,
 
 	panels : {
 		pay : {

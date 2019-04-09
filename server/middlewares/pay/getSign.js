@@ -76,5 +76,7 @@ module.exports = async function (swc, param){
 		signResult : signResult
 	})
 
+	payjsResult.out_trade_no = param.query.out_trade_no;
+
 	return payjsResult;
 }
