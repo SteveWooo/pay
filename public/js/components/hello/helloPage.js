@@ -23,6 +23,7 @@ Vue.component("hello", {
 
 		checkPay : function(options, callback){
 			var that = this;
+			alert('check pay')
 			this.ctrl.ajax({
 				url : keke.config.baseUrl + '/pay/api/p/pay/checkPay?out_trade_id=' +
 					options.out_trade_id,
@@ -50,9 +51,9 @@ Vue.component("hello", {
 			var that = this;
 			WeixinJSBridge.invoke('getBrandWCPayRequest', options.jsapi, function success(res){
 				//开始轮询后台
-				// that.checkPay(options, function(){
-				// 	callback();
-				// })
+				that.checkPay(options, function(){
+					callback();
+				})
 			})
 		},
 
