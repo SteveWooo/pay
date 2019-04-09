@@ -186,8 +186,6 @@ Vue.component("hello", {
 		<v-flex xs12>
 			<v-dialog 
 				dark
-				scrollable=true
-				hide-overlay="true"
 				v-model="data.panels.pay.show"
 				>
 				<v-card>
