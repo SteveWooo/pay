@@ -21,11 +21,37 @@ Vue.component("hello", {
 			this.getOpenid();
 		},
 
+		checkPay : function(options, callback){
+			var that = this;
+			this.ctrl.ajax({
+				url : keke.config.baseUrl + '/pay/api/p/pay/checkPay?out_trade_id=' +
+					options.out_trade_id,
+				successFunction : function(res){
+					if(res.status != 2000){
+						that.ctrl.alert({
+							message : res.error_message
+						});
+						return ;
+					}
+					if(res.data.payed == 1){
+						callback();
+						return ;
+					}
+
+					setTimeout(function(){
+						that.checkPay(options, callback);
+					}, 1000)
+				}
+			})
+		},
+
 		openWechatPay : function(options, callback){
+			var that = this;
 			WeixinJSBridge.invoke('getBrandWCPayRequest', options.jsapi, function success(res){
 				//开始轮询后台
-
-				callback();
+				that.checkPay(options, function(){
+					callback();
+				})
 			})
 		},
 
@@ -73,6 +99,7 @@ Vue.component("hello", {
 				}
 				//调用微信支付
 				that.openWechatPay(result.data, function(){
+					alert('支付成功！');
 					scope.waitting = false;
 				});
 			})

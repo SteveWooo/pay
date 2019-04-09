@@ -7,12 +7,17 @@ keke.config = {
 		'hello'
 	],
 	menu : [{
-		text : "富到你拉开我也懒得写目录名",
+		text : "首页",
+		icon: 'history',
+		router : "hello"
+	},{
+		text : "看看我的兔子",
 		icon: 'history',
 		router : "hello"
 	}],
 	router_name : {
-		'hello' : ''
+		'hello' : '践踏',
+		'rabbit' : '我的兔子'
 	},
 
 	mchid : '1531506461',

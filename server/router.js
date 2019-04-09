@@ -96,6 +96,11 @@ var publicRouters = {
 		path : '/pay/api/p/pay/pay_callback',
 		method : 'post'
 	},
+	checkPay : {
+		module : require("./routers/public/pay/checkPay"),
+		path : '/pay/api/p/pay/check_pay',
+		method : 'get'
+	},
 }
 
 //中间件
