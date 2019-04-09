@@ -100,13 +100,28 @@
 			</router-view>
 		</v-content>
 
-		<v-footer app>
-			<v-layout row wrap style="margin-bottom: 100px;">
+		<v-footer app style="height: 80px">
+			<div style="text-align: center;
+				width:100%">
+				<div style="color : #999;
+					">
+					本网站阔气地使用了超费资源的Node.js技术开发
+					<img style="width : 16px;
+					line-height: 18px;" src="https://nodejs.org/static/favicon.png" />
+				</div>
+				<div>
+					© 2019 <a href="https://github.com/stevewooo">github.com/stevewooo</a>
+				</div>
+				<div style="margin-top: 2px;height : 30px;">
+					<a style="color : #999" href="http://www.miitbeian.gov.cn">备案号：粤ICP备16050563号-2</a>
+				</div>
+			</div>
+			<v-layout row wrap style="bottom: 80px;position:absolute;right:100px">
 				<v-flex xs8>
 				</v-flex>
 				<v-flex xs4>
 					<v-alert
-						v-model="global.common.controllers.leaves.alert.show"
+						v-model="!global.common.controllers.leaves.alert.show"
 						dismissible
 						transition="scale-transition"
 						type="warning"
@@ -117,6 +132,7 @@
 					</v-alert>
 				</v-flex>
 			</v-layout>
+			
 		</v-footer>
  	</div>
  	<script type="text/javascript" src="dist/jquery.min.js"></script>
