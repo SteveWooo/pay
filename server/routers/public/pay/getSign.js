@@ -45,7 +45,7 @@ module.exports = async (req, res, next)=>{
 
 	//写进数据库
 	try{
-		await req.swc.db.modles.pays.create(pay);
+		await req.swc.db.models.pays.create(pay);
 	}catch(e){
 		console.log(e);
 	}
