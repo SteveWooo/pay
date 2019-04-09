@@ -15,6 +15,8 @@ module.exports = async function(req, res, next){
 		return ;
 	}
 
+	console.log('success');
+
 	//直接退出
 	res.send('success');
 	return ;

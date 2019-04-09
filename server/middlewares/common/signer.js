@@ -9,8 +9,8 @@ function getSign(swc, queryDic){
 	source = source.join('&');
 	source += "&key=" + swc.config.payjs.secret;
 
-	console.log('source : ');
-	console.log(source);
+	// console.log('source : ');
+	// console.log(source);
 
 	var sign = crypto.createHash('md5').update(source).digest('hex').toUpperCase();
 	return {
@@ -49,8 +49,8 @@ exports.getSignByQuery = async function (swc, param){
 exports.checkSign = async function(swc, param){
 	var signFromQuery = param.query.sign;
 	delete param.query.sign;
-	console.log('source param:');
-	console.log(param);
+	// console.log('source param:');
+	// console.log(param);
 	var sign = swc.common.signer.getSignByQuery(swc, {
 		query : param.query
 	})
