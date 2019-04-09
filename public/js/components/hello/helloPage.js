@@ -34,7 +34,7 @@ Vue.component("hello", {
 			this.ctrl.ajax({
 				url : keke.config.baseUrl + '/pay/api/p/pay/get_sign?mchid=' + 
 					keke.config.mchid + '&total_fee=' +
-					that.panels.pay.form.total_fee + '&openid=' + 
+					that.data.panels.pay.form.total_fee + '&openid=' + 
 					keke.getQuery('openid'),
 				successFunction : function(res){
 					if(res.status == '2000'){
