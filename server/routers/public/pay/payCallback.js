@@ -7,7 +7,9 @@ module.exports = async function(req, res, next){
 	}
 
 	console.log(query);
-	if(!swc.common.signer.checkSign(swc, query)){
+	if(!swc.common.signer.checkSign(swc, {
+		query : query
+	})){
 		console.log('sign error');
 		res.send('error');
 		return ;
