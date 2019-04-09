@@ -6,7 +6,7 @@ keke.leaves.hello = {
 		pay : {
 			show : false,
 			form : {
-				total_fee : 0,
+				total_fee : 1,
 			}
 		}
 	}

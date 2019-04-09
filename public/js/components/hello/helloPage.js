@@ -94,6 +94,7 @@ Vue.component("hello", {
 				</v-flex>
 				<v-flex xs2>
 					<v-img
+						@click="onPay"
 						style="width:100%"
 						src="/pay/res/lizhiqizhuang.png" />
 				</v-flex>
