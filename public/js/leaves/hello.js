@@ -1,3 +1,4 @@
 keke.leaves.hello = {
-	data : "hello world"
+	data : "hello world",
+	openid : ""
 }

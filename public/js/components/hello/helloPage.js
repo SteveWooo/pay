@@ -15,8 +15,13 @@ Vue.component("hello", {
 			// 		console.log(res);
 			// 	}
 			// })
-
-			location.href = 'https://payjs.cn/api/openid?mchid='+keke.config.mchid+'&callback_url=https://deadfishcrypto.com/pay/public/index.html';
+			var openid = keke.getQuery('openid');
+			if(!openid){
+				location.href = 'https://payjs.cn/api/openid?mchid='+keke.config.mchid+'&callback_url=https://deadfishcrypto.com/pay/public/index.html#hello';
+			} else {
+				scope.openid = openid;
+			}
+			
 		},
 
 		pay : function(){
@@ -31,9 +36,13 @@ Vue.component("hello", {
 <v-container>
 	<v-layout row wrap>
 		<v-flex xs12>
-			<button @click="pay">
+			<button color="red" @click="pay">
 				支付
 			</button>
+		</v-flex>
+
+		<v-flex xs12>
+			{{data.openid}}
 		</v-flex>
 	</v-layout>
 </v-container>
