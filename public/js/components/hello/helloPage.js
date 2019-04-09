@@ -50,9 +50,9 @@ Vue.component("hello", {
 			var that = this;
 			WeixinJSBridge.invoke('getBrandWCPayRequest', options.jsapi, function success(res){
 				//开始轮询后台
-				that.checkPay(options, function(){
-					callback();
-				})
+				// that.checkPay(options, function(){
+				// 	callback();
+				// })
 			})
 		},
 
