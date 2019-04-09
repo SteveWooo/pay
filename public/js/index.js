@@ -129,6 +129,9 @@ var vue = new Vue({
 		},
 		init : function(){
 			this.router_init();
+
+			//初始化页面
+			location.hash = 'hello';
 		},
 		drawerRouter : function(r){
 			location.hash = r;

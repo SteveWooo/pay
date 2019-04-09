@@ -90,11 +90,6 @@ var publicRouters = {
 		module : require("./routers/public/pay/getSign"),
 		path : '/pay/api/p/pay/get_sign',
 		method : 'get'
-	},
-	callbackOpenid : {
-		module : require('./routers/public/pay/callbackOpenid'),
-		path : '/pay/api/p/pay/callback_openid',
-		method : 'get'
 	}
 }
 

@@ -4,11 +4,25 @@
 */
 
 module.exports = async (req, res, next)=>{
-	var sign = await req.swc.pay.getSign(req.swc, {
+	if(!req.query.openid){
+		req.response.status = '4005';
+		req.response.error_message = '参数缺失：openid';
+		next();
+		return ;
+	}
+
+	var result = await req.swc.pay.getSign(req.swc, {
 		query : req.query
 	});
-	req.response = {
-		sign : sign
+
+	//payjs api报错
+	if(result.return_code == 0){
+		req.response.status = '5000';
+		req.response.error_message = result.return_msg;
+		next();
+		return ;
 	}
+
+	req.response.data = result;
 	next();
 }
