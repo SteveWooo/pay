@@ -93,7 +93,8 @@ var publicRouters = {
 	},
 	callbackOpenid : {
 		module : require('./routers/public/pay/callbackOpenid'),
-		path : '/pay/api/p/pay/callback_openid'
+		path : '/pay/api/p/pay/callback_openid',
+		method : 'get'
 	}
 }
 
