@@ -76,6 +76,7 @@ Vue.component("hello", {
 					that.ctrl.alert({
 						message : res.error_message
 					})
+					callback(res);
 				}
 			})
 		},
@@ -96,15 +97,15 @@ Vue.component("hello", {
 
 			//拿签名 生成支付订单
 			this.getPaySign(function(result){
-				if(result.data.return_code != '1'){
-					that.ctrl.alert({
-						message : result.data.return_msg
-					});
+				if(result.status != 2000){
+					scope.waitting = false;
 					return ;
 				}
 				//调用微信支付
 				that.openWechatPay(result.data, function(){
 					alert('支付成功！');
+					//todo 刷新列表
+					that.switchPayPanel();
 					scope.waitting = false;
 				});
 			})
@@ -116,6 +117,9 @@ Vue.component("hello", {
 
 			if(!scope.panels.pay.show) {
 				scope.panels.pay.form.total_fee = 0;
+				scope.panels.pay.form.name = '';
+				scope.panels.pay.form.email = '';
+				scope.panels.pay.form.message = '';
 				scope.panels.pay.show = true;
 			} else {
 				scope.panels.pay.show = false;
@@ -135,13 +139,67 @@ Vue.component("hello", {
 				</v-flex>
 				<v-flex xs2>
 					<v-img
-						@click="onPay"
+						@click="switchPayPanel"
 						style="width:100%"
 						src="/pay/res/lizhiqizhuang.png" />
 				</v-flex>
 			</v-layout>
 		</v-flex>
 	</v-layout>
+
+	<v-dialog 
+		dark
+		scrollable=true
+		hide-overlay="true"
+		v-model="data.panels.pay.show"
+		>
+		<v-card>
+			<v-card-title
+			  class="headline lighten-1"
+			  primary-title
+			>
+				一健践踏
+			</v-card-title>
+
+			<v-form
+				style="padding:16px 16px 16px 16px">
+				<v-text-field
+					required
+					v-model=data.panels.pay.form.name
+					label="您的大名">
+				</v-text-field>
+				<v-text-field
+					required
+					v-model=data.panels.pay.form.email
+					label="留个联系方式呗">
+				</v-text-field>
+				<v-text-field
+					required
+					v-model=data.panels.pay.form.message
+					label="留言">
+				</v-text-field>
+
+				<v-text-field
+					required
+					v-model=data.panels.pay.form.total_fee
+					label="践踏金额">
+				</v-text-field>
+			</v-form>
+			<v-divider></v-divider>
+			<v-card-actions>
+				<v-btn
+					@click="switchPayPanel">
+					取消
+				</v-btn>
+				<v-btn
+					v-if="!data.waitting"
+					@click="onPay"
+					color="blue">
+					确定
+				</v-btn>
+			</v-card-actions>
+		</v-card>
+	</v-dialog>
 </v-container>
 `
 })

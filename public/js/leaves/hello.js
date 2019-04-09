@@ -8,6 +8,10 @@ keke.leaves.hello = {
 			show : false,
 			form : {
 				total_fee : 1,
+
+				name : '',
+				email : '',
+				message : ''
 			}
 		}
 	}
