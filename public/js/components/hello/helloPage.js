@@ -27,6 +27,7 @@ Vue.component("hello", {
 				url : keke.config.baseUrl + '/pay/api/p/pay/checkPay?out_trade_id=' +
 					options.out_trade_id,
 				successFunction : function(res){
+					alert(res.data.payed);
 					if(res.status != 2000){
 						that.ctrl.alert({
 							message : res.error_message
