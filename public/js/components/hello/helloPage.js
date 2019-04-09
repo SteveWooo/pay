@@ -9,8 +9,15 @@ Vue.component("hello", {
 		init : function(){
 			var scope = vue.global.pages.hello;
 
+			// this.ctrl.ajax({
+			// 	url : keke.config.baseUrl + '/pay/api/p/pay/get_sign',
+			// 	successFunction : function(res){
+			// 		console.log(res);
+			// 	}
+			// })
+
 			this.ctrl.ajax({
-				url : keke.config.baseUrl + '/pay/api/p/pay/get_sign',
+				url : 'https://payjs.cn/api/openid?mchid='+keke.config.mchid+'&callback_url=https://deadfishcrypto.com/pay/api/p/pay/callback_openid',
 				successFunction : function(res){
 					console.log(res);
 				}
@@ -18,7 +25,7 @@ Vue.component("hello", {
 		},
 
 		pay : function(){
-			
+
 		}
 	},
 	mounted : function(){

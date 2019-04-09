@@ -22,6 +22,7 @@ keke.config = {
 		router : "demo"
 	}],
 
+	mchid : '1531506461',
 	baseUrl : location.origin, //根目录路径
 	baseResUrl : location.origin + "/res", //资源根目录路径
 }
