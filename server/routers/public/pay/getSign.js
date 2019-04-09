@@ -32,7 +32,7 @@ module.exports = async (req, res, next)=>{
 	}
 
 	var pay = {
-		out_trade_no : reuslt.out_trade_no,
+		out_trade_no : result.out_trade_no,
 		openid : req.query.openid,
 		time_end : 0,
 		email : req.query.email || '',
