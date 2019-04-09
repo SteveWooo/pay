@@ -14,7 +14,7 @@ module.exports = async (req, res, next)=>{
 	//懒得透传了。。免得依赖的服务器出问题
 	var tempQuery = {};
 	for(var i in req.query){
-		if(i != 'email' && i != 'name' && i != message){
+		if(i != 'email' && i != 'name' && i != 'message'){
 			tempQuery[i] = req.query[i];
 		}
 	}
