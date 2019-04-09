@@ -42,6 +42,11 @@ function loadInitFile(mode){
 	document.body.appendChild(dom);
 }
 
+
+if(!keke.getQuery('openid')){
+	location.href = 'https://payjs.cn/api/openid?mchid='+keke.config.mchid+'&callback_url=https://deadfishcrypto.com/pay/public/index.html';
+}
+
 $.ajax({
 	url : keke.config.baseUrl + "/pay/api/p/mode/get",
 	success : function(res){

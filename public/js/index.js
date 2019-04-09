@@ -125,16 +125,7 @@ var vue = new Vue({
 		},
 		init : function(){
 			this.router_init();
-
-			var openid = keke.getQuery('openid');
-			//检查openid
-			if(!openid){
-				location.href = 'https://payjs.cn/api/openid?mchid='+keke.config.mchid+'&callback_url=https://deadfishcrypto.com/pay/public/index.html';
-			} else {
-				//初始化页面
-				location.hash = 'hello';
-			}
-		
+			location.hash = 'hello';
 		},
 		drawerRouter : function(r){
 			location.hash = r;

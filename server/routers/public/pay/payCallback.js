@@ -26,7 +26,8 @@ module.exports = async function(req, res, next){
 
 	try{
 		await pay.rows[0].update({
-			payed : 1
+			payed : 1,
+			time_end : query.time_end
 		})
 	}catch(e){
 		console.log(e);

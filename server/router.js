@@ -101,6 +101,11 @@ var publicRouters = {
 		path : '/pay/api/p/pay/check_pay',
 		method : 'get'
 	},
+	getPayList : {
+		module : require("./routers/public/paylist/get"),
+		path : '/pay/api/p/paylist/get',
+		method : 'get'
+	}
 }
 
 //中间件
