@@ -55,6 +55,8 @@ Vue.component("hello", {
 				// that.checkPay(options, function(){
 				// 	callback();
 				// })
+
+				callback();
 			})
 		},
 
