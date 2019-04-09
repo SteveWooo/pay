@@ -16,12 +16,7 @@ Vue.component("hello", {
 			// 	}
 			// })
 
-			this.ctrl.ajax({
-				url : 'https://payjs.cn/api/openid?mchid='+keke.config.mchid+'&callback_url=https://deadfishcrypto.com/pay/api/p/pay/callback_openid',
-				successFunction : function(res){
-					console.log(res);
-				}
-			})
+			location.href = 'https://payjs.cn/api/openid?mchid='+keke.config.mchid+'&callback_url=https://deadfishcrypto.com/pay/public/index.html';
 		},
 
 		pay : function(){
