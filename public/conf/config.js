@@ -45,14 +45,15 @@ function loadInitFile(mode){
 
 if(!keke.getQuery('openid')){
 	location.href = 'https://payjs.cn/api/openid?mchid='+keke.config.mchid+'&callback_url=https://deadfishcrypto.com/pay/public/index.html';
+} else {
+	$.ajax({
+		url : keke.config.baseUrl + "/pay/api/p/mode/get",
+		success : function(res){
+			loadInitFile(res.data);
+		},
+		error : function(e){
+			alert('网络错误！')
+		}
+	})
 }
 
-$.ajax({
-	url : keke.config.baseUrl + "/pay/api/p/mode/get",
-	success : function(res){
-		loadInitFile(res.data);
-	},
-	error : function(e){
-		alert('网络错误！')
-	}
-})
