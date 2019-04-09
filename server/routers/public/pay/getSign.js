@@ -11,6 +11,26 @@ module.exports = async (req, res, next)=>{
 		return ;
 	}
 
+	//懒得透传了。。免得依赖的服务器出问题
+	var tempQuery = {};
+	for(var i in query){
+		if(i != 'email' && i != 'name' && i != message){
+			tempQuery[i] = query[i];
+		}
+	}
+
+	var result = await req.swc.pay.getSign(req.swc, {
+		query : tempQuery
+	});
+
+	//payjs api报错
+	if(result.return_code == 0){
+		req.response.status = '5000';
+		req.response.error_message = result.return_msg;
+		next();
+		return ;
+	}
+
 	var pay = {
 		out_trade_no : reuslt.out_trade_no,
 		openid : req.query.openid,
@@ -21,23 +41,6 @@ module.exports = async (req, res, next)=>{
 		total_fee : req.query.total_fee,
 		payed : 0,
 		create_at : +new Date()
-	}
-
-	//懒得透传了 还限制长度
-	delete req.query.email;
-	delete req.query.name;
-	delete req.query.message;
-
-	var result = await req.swc.pay.getSign(req.swc, {
-		query : req.query
-	});
-
-	//payjs api报错
-	if(result.return_code == 0){
-		req.response.status = '5000';
-		req.response.error_message = result.return_msg;
-		next();
-		return ;
 	}
 
 	//写进数据库
