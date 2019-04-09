@@ -17,7 +17,7 @@ keke.leaves.hello = {
 			text : "留言",
 			sortable : false
 		}, {
-			text : "金额",
+			text : "羞辱金额",
 			sortable : false
 		}]
 	},

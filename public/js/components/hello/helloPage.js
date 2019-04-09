@@ -9,30 +9,23 @@ Vue.component("hello", {
 		//页面启动瞬间就要进入这个里面去了
 		init : function(){
 			var scope = vue.global.pages.hello;
+			this.getPaylistData();
 		},
 
-		checkPay : function(options, callback){
+		getPaylistData : function(){
 			var that = this;
-			alert('check pay')
-			this.ctrl.ajax({
-				url : keke.config.baseUrl + '/pay/api/p/pay/checkPay?out_trade_id=' +
-					options.out_trade_id,
+			var scope = vue.global.pages.hello;
+
+			that.ctrl.ajax({
+				url : keke.config.baseUrl + '/pay/api/p/paylist/get?item_per_page=' + 
+					scope.datas.itemPerPage + '&page=' + 
+					scope.datas.pageNow,
 				successFunction : function(res){
-					alert(res.data.payed);
 					if(res.status != 2000){
-						that.ctrl.alert({
-							message : res.error_message
-						});
-						return ;
-					}
-					if(res.data.payed == 1){
-						callback();
 						return ;
 					}
 
-					setTimeout(function(){
-						that.checkPay(options, callback);
-					}, 1000)
+					scope.datas.list = res.data.rows;
 				}
 			})
 		},
@@ -40,12 +33,6 @@ Vue.component("hello", {
 		openWechatPay : function(options, callback){
 			var that = this;
 			WeixinJSBridge.invoke('getBrandWCPayRequest', options.jsapi, function success(res){
-				//开始轮询后台
-				//废置
-				// that.checkPay(options, function(){
-				// 	callback();
-				// })
-
 				callback();
 			})
 		},
@@ -130,20 +117,47 @@ Vue.component("hello", {
 `
 <v-container>
 	<v-layout row wrap>
-		<v-flex xs12 style="margin-top : 50px">
+		<v-flex xs12 style="margin-top : 10px">
 			<v-layout row wrap>
-				<v-flex xs1>
-				</v-flex>
 				<v-flex xs2>
 					<v-img
-						@click="switchPayPanel"
 						style="width:100%"
 						src="/pay/res/lizhiqizhuang.png" />
+				</v-flex>
+				<v-flex xs10>
+					<div 
+						style="border : 1px solid #ef5350;
+						padding : 5px 5px 5px 5px;
+						border-radius:10px">
+						老子就是有钱人，但老子想变得更有钱
+						<br>
+						如果你想羞辱有钱人，请
+					</div>
 				</v-flex>
 			</v-layout>
 		</v-flex>
 
 		<v-flex xs12>
+			<div
+				style="width : 60%;
+				margin-left : 20%;
+				margin-top : 30px;
+				margin-bottom:30px;
+				border : 1px solid #ef5350;
+				border-radius : 10px;
+				text-align:center;
+				background-color : #ef5350;
+				color : #fff;
+				font-size : 25px;
+				height : 50px;
+				line-height : 50px;"
+
+				@click="switchPayPanel">
+				一健羞辱
+			</div>
+		</v-flex>
+
+		<v-flex xs12 style="margin-top:10px;">
 			<v-data-table
 				dark
 				hide-actions
@@ -155,13 +169,13 @@ Vue.component("hello", {
 				<v-progress-linear slot="progress" color="red" indeterminate></v-progress-linear>
 				<template slot="items" slot-scope="props">
 					<td>
-						{{props.item.name}}
+						{{props.item.name == '' ? '无名大爷' : props.item.name}}
 					</td>
 					<td>
 						{{props.item.message}}
 					</td>
 					<td>
-						{{props.item.total_fee}}
+						{{(props.item.total_fee / 100) + ' 元'}}
 					</td>
 				</template>
 			</v-data-table>
@@ -179,7 +193,7 @@ Vue.component("hello", {
 					  class="headline red lighten-1"
 					  primary-title
 					>
-						一健践踏
+						请开始你的表演
 					</v-card-title>
 
 					<v-form
@@ -199,7 +213,9 @@ Vue.component("hello", {
 							v-model=data.panels.pay.form.message
 							label="留言">
 						</v-text-field>
-
+						<div style="height : 30px;line-height : 30px;margin-bottom : 10px">
+							羞辱金额
+						</div>
 						<v-layout flex wrap>
 							<v-flex xs3 class="pay-btn">
 								<div

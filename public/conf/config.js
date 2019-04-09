@@ -7,7 +7,7 @@ keke.config = {
 		'hello'
 	],
 	menu : [{
-		text : "首页",
+		text : "羞辱入口",
 		icon: 'history',
 		router : "hello"
 	},{
@@ -16,7 +16,7 @@ keke.config = {
 		router : "hello"
 	}],
 	router_name : {
-		'hello' : '践踏',
+		'hello' : '',
 		'rabbit' : '我的兔子'
 	},
 
