@@ -27,7 +27,7 @@ keke.config = {
 	baseResUrl : location.origin + "/res", //资源根目录路径
 }
 
-keke.getQuery(variable){
+keke.getQuery = function(variable){
 	var query = window.location.search.substring(1);
 	var vars = query.split("&");
 	for (var i=0;i<vars.length;i++) {
