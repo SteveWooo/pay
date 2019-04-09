@@ -128,6 +128,8 @@ Vue.component("hello", {
 					<div 
 						style="border : 1px solid #ef5350;
 						padding : 5px 5px 5px 5px;
+						width : 90%;
+						margin-left : 5%;
 						border-radius:10px">
 						老子就是有钱人，但老子想变得更有钱
 						<br>
