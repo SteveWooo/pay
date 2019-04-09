@@ -50,7 +50,7 @@ exports.checkSign = async function(swc, param){
 	var signFromQuery = param.query.sign;
 	delete param.query.sign;
 	console.log('source param:');
-	console.log(parma);
+	console.log(param);
 	var sign = swc.common.signer.getSignByQuery(swc, {
 		query : param.query
 	})
