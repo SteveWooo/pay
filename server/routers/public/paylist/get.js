@@ -33,6 +33,7 @@ module.exports = async (req, res, next)=>{
 
 		for(var i=0;i<result.rows.length;i++){
 			result.rows[i].openid = "";
+			result.rows[i].email = "";
 		}
 
 		req.response.data = result;
