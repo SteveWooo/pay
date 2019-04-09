@@ -4,23 +4,16 @@
 var keke = {};
 keke.config = {
 	components : [
-		'hello', 
-		'login',
-		'demo',
+		'hello'
 	],
 	menu : [{
-		text : "登陆",
-		icon: 'history',
-		router : "login"
-	},{
-		text : "hello",
+		text : "富到你拉开我也懒得写目录名",
 		icon: 'history',
 		router : "hello"
-	},{
-		text : "demo",
-		icon: 'history',
-		router : "demo"
 	}],
+	router_name : {
+		'hello' : ''
+	},
 
 	mchid : '1531506461',
 	baseUrl : location.origin, //根目录路径

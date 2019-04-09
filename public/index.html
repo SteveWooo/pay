@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>炫富系统</title>
+	<link rel="shortcut icon" href="/pay/res/favicon.ico">
 	<link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
 	<!-- <link href="./dist/vuetify.min.css" rel="stylesheet"> -->
 	<link href="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.min.css" rel="stylesheet">
@@ -14,14 +15,14 @@
 </head>
 <body>
 	<div id="app" v-cloak>
-		<v-navigation-drawer
+		<!-- <v-navigation-drawer
 	      v-model="index.drawer"
 	      fixed
 	      clipped
 	      app
 	    >
 	      <v-list dense>
-	      	<v-subheader class="mt-3 grey--text text--darken-1">SUBSCRIPTIONS</v-subheader>
+	      	<v-subheader class="mt-3 grey--text text--darken-1">省省吧</v-subheader>
 	        <v-list-tile v-for="item in index.menu" :key="item.text" @click="drawerRouter(item.router)">
 	          <v-list-tile-action>
 	            <v-icon>{{ item.icon }}</v-icon>
@@ -45,7 +46,6 @@
 	      <v-toolbar-side-icon @click.stop="index.drawer = !index.drawer"></v-toolbar-side-icon>
 			<v-icon class="mx-3"></v-icon>
 			<v-toolbar-title class="v-toolbar__title mr-5 align-center">
-			<!-- <span class="title" style="color:#FFF">科城政府中心管理后台 <small> 欢迎您!</small></span> -->
 				<span class="title" style="color:#FFF">{{router_name[router]}}</span>
 			</v-toolbar-title>
 			<v-spacer>
@@ -66,7 +66,7 @@
 					重新登录
 				</v-btn>
 			</v-toolbar-items>
-	    </v-toolbar>
+	    </v-toolbar> -->
 
 		<v-content>
 			<router-view>

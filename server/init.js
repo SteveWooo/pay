@@ -42,7 +42,9 @@ async function init(){
 		argv : await getArgv(),
 		app : express(),
 		common : {
-			saveImage : require("./middlewares/common/images").saveImage
+			saveImage : require("./middlewares/common/images").saveImage,
+			getWechatUser : require('./middlewares/common/getWechatUser'),
+			signer : require('./middlewares/common/signer'),
 		},
 		pay : {
 			getSign : require('./middlewares/pay/getSign')

@@ -90,7 +90,12 @@ var publicRouters = {
 		module : require("./routers/public/pay/getSign"),
 		path : '/pay/api/p/pay/get_sign',
 		method : 'get'
-	}
+	},
+	payCallback : {
+		module : require("./routers/public/pay/payCallback"),
+		path : '/pay/api/p/pay/pay_callback',
+		method : 'post'
+	},
 }
 
 //中间件
