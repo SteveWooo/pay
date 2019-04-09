@@ -1,5 +1,6 @@
 module.exports = async function(req, res, next){
 	var query = req.body;
+	var swc = req.swc
 	if(!query || query['return_code'] != 1){
 		res.send('error');	
 		return ;
