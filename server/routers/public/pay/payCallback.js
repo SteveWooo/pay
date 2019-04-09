@@ -13,7 +13,7 @@ module.exports = async function(req, res, next){
 		res.send('error');
 		return ;
 	}
-	var pay = await req.swcdb.models.pays.findAndCountAll({
+	var pay = await req.swc.db.models.pays.findAndCountAll({
 		where : {
 			out_trade_no : query.out_trade_no
 		}
