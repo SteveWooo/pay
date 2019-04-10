@@ -35,6 +35,16 @@ keke.getQuery = function(variable){
 
 	return undefined;
 }
+keke.ls = {
+	set : function(key, value) {
+		window.localStorage.setItem(key, typeof value == 'string' ? 
+			value : JSON.stringify(value));
+	},
+	get : function(key) {
+		var item = window.localStorage.getItem(key);
+		return JSON.parse(item);
+	}
+}
 
 function loadInitFile(mode){
 	var dom = document.createElement("script");
@@ -42,9 +52,15 @@ function loadInitFile(mode){
 	document.body.appendChild(dom);
 }
 
+//初始化微信jssdk
+function initWx(){
+
+}
+	
 
 if(!keke.getQuery('openid')){
 	location.href = 'https://payjs.cn/api/openid?mchid='+keke.config.mchid+'&callback_url=https://deadfishcrypto.com/pay/public/index.html';
+	return ;
 } else {
 	$.ajax({
 		url : keke.config.baseUrl + "/pay/api/p/mode/get",
