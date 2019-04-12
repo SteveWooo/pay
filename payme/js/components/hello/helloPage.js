@@ -141,9 +141,7 @@ Vue.component("hello", {
 						width : 90%;
 						margin-left : 5%;
 						border-radius:10px">
-						老子就是有钱人，但老子想变得更有钱
-						<br>
-						如果你想羞辱有钱人，请
+						我是穷逼，人穷志短的傻逼，我自卑，我虚荣；我没钱，没梦想。我穷困潦倒，我失意颓废，我的保时捷加不起油，我的鞋柜放不完AJ，我人生一片灰暗。放下我卑贱的自尊，只求大佬您用金钱羞辱我，践踏我！
 					</div>
 				</v-flex>
 			</v-layout>
@@ -165,7 +163,7 @@ Vue.component("hello", {
 				line-height : 50px;"
 
 				@click="switchPayPanel">
-				一健羞辱
+				一健蹂躏
 			</div>
 		</v-flex>
 
@@ -203,7 +201,7 @@ Vue.component("hello", {
 					  class="headline red lighten-1"
 					  primary-title
 					>
-						请开始你的表演
+						大爷您好
 					</v-card-title>
 
 					<v-form
@@ -211,20 +209,23 @@ Vue.component("hello", {
 						<v-text-field
 							required
 							v-model=data.panels.pay.form.name
-							label="您的大名">
+							label="您的大名"
+							placeholder="无名大爷">
 						</v-text-field>
 						<v-text-field
 							required
 							v-model=data.panels.pay.form.email
-							label="留个联系方式呗">
+							label="联系方式"
+							placeholder="help@me.com">
 						</v-text-field>
 						<v-text-field
 							required
 							v-model=data.panels.pay.form.message
-							label="留言">
+							label="说两句"
+							placeholder="业精于勤而荒于嬉，行成于思而毁于随。">
 						</v-text-field>
 						<div style="height : 30px;line-height : 30px;margin-bottom : 10px">
-							羞辱金额
+							金额
 						</div>
 						<v-layout flex wrap>
 							<v-flex xs3 class="pay-btn">
@@ -287,7 +288,7 @@ Vue.component("hello", {
 							v-if="!data.waitting"
 							@click="onPay"
 							color="red">
-							确定
+							践踏他
 						</v-btn>
 					</v-card-actions>
 				</v-card>

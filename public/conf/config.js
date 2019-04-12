@@ -49,7 +49,7 @@ function initWx(){
 }
 	
 
-if(!keke.getQuery('openid') && false){
+if(!keke.getQuery('openid')){
 	location.href = 'https://payjs.cn/api/openid?mchid='+keke.config.mchid+'&callback_url=' +
 		location.href;
 } else {
