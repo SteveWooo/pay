@@ -4,11 +4,20 @@
 var keke = {};
 keke.config = {
 	components : [
-		'pay'
+		'hello'
 	],
-	menu : [],
+	menu : [{
+		text : "羞辱入口",
+		icon: 'history',
+		router : "hello"
+	},{
+		text : "看看我的兔子",
+		icon: 'history',
+		router : "hello"
+	}],
 	router_name : {
-		'pay' : '支付'
+		'hello' : '',
+		'rabbit' : '我的兔子'
 	},
 
 	mchid : '1531506461',
@@ -47,20 +56,13 @@ function loadInitFile(mode){
 function initWx(){
 
 }
-	
 
-if(!keke.getQuery('openid')){
-	location.href = 'https://payjs.cn/api/openid?mchid='+keke.config.mchid+'&callback_url=' +
-		location.href;
-} else {
-	$.ajax({
-		url : keke.config.baseUrl + "/pay/api/p/mode/get",
-		success : function(res){
-			loadInitFile(res.data);
-		},
-		error : function(e){
-			alert('网络错误！')
-		}
-	})
-}
-
+$.ajax({
+	url : keke.config.baseUrl + "/pay/api/p/mode/get",
+	success : function(res){
+		loadInitFile(res.data);
+	},
+	error : function(e){
+		alert('网络错误！')
+	}
+})

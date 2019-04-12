@@ -125,7 +125,7 @@ var vue = new Vue({
 		},
 		init : function(){
 			this.router_init();
-			location.hash = 'pay';
+			location.hash = 'hello';
 		},
 		drawerRouter : function(r){
 			location.hash = r;

@@ -81,8 +81,10 @@ async function init(){
 
 	//资源
 	swc.app.use("/pay/res", express.static("res"));
-	//管理后台
+	//支付前端
 	swc.app.use("/pay/public", express.static("public"));
+	//前端
+	swc.app.use("/pay/me", express.static("payme"));
 	//中间件
 	swc.app.use(bodyParser.urlencoded({extended: false}));
 	swc.app.use(bodyParser.json({"limit":"10000kb"}));

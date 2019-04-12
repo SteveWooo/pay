@@ -14,6 +14,16 @@ module.exports = async (req, res, next)=>{
 	//懒得透传了。。免得依赖的服务器出问题
 	var tempQuery = {};
 	for(var i in req.query){
+
+		if(req.query[i].indexOf('<') > 0 ||
+			req.query[i].indexOf('>') > 0 ||
+			req.query[i].indexOf('/') > 0){
+			req.response.status = '4003';
+			req.response.error_message = '参数异常';
+			next();
+			return ;
+		}
+
 		if(i != 'email' && i != 'name' && i != 'message'){
 			tempQuery[i] = req.query[i];
 		}
