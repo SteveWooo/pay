@@ -26,21 +26,9 @@ keke.leaves.pay = {
 		}]
 	},
 	panels : {
-		add : {
-			show : false,
-			editor : undefined,
+		pay : {
 			form : {
-				title : '',
-				description : ''
-			}
-		},
-		update : {
-			show : false,
-			editor : undefined,
-			selfServiceId : '',
-			form : {
-				title : '',
-				description : ''
+				
 			}
 		}
 	}

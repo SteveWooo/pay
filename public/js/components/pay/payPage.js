@@ -11,6 +11,21 @@ Vue.component('pay', {
 		},
 		init : function(){
 			vue.global.common.initHandle();
+			var scope = vue.global.pages[this.data.config.name];
+			var that = this;
+
+			if(parseFloat(keke.getQuery('total_fee')) != keke.getQuery('total_fee')){
+				this.backPage();
+				return ;
+			}
+
+			scope.panels.pay.form = {
+				total_fee : keke.getQuery('total_fee'),
+				openid : keke.getQuery('openid'),
+				name : keke.getQuery('name'),
+				email : keke.getQuery('email'),
+				message : keke.getQuery('message')
+			}
 		},
 		
 		openWechatPay : function(options, callback){
@@ -99,10 +114,20 @@ Vue.component('pay', {
 `
 <v-container>
 	<v-layout row wrap>
-		<div>
-			<button @click="onPay">
-				确认支付
-			</button>
+		<div style="width : 100%;margin-top : 40px;">
+			<div
+				style="background-color:#1AAD19;
+					width : 60%;
+					margin-left : 20%;
+					height : 40px;
+					line-height:40px;
+					font-size : 18px;
+					color : #fff;
+					text-align:center;
+					border-radius : 10px;"
+				@click="onPay">
+				确认支付 {{data.panels.pay.form.total_fee / 100}} 元
+			</div>
 		</div>
 	</v-layout>
 </v-container>
