@@ -74,7 +74,7 @@ Vue.component("hello", {
 			//封装参数
 			var q = [];
 			for(var i in scope.panels.pay.form){
-				query.push(i + '=' + scope.panels.pay.form[i])
+				q.push(i + '=' + scope.panels.pay.form[i])
 			}	
 
 			location.href = '/pay/public/index.html?' + q.join('&')
