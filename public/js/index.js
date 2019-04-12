@@ -58,25 +58,7 @@ var vue = new Vue({
 				//管理员数据
 				admin_user : undefined,
 				initHandle : function(){
-					//登陆页面不需要获取管理员信息
-					if(location.hash == "login"){
-						return ;
-					}
-					vue.global.common.controllers.actions.ajax({
-						url : keke.config.baseUrl + "/api/m/user/get",
-						type : "post",
-						successFunction : function(res){
-							if(res.status != "2000"){
-								alert(res.error_message);
-								return res;
-							}
-							vue.global.common.admin_user = res.source.admin_user;
-							return res;
-						},
-						errorFunction : function(){
-							alert("网络错误");
-						}
-					})
+					
 				},
 
 				tools : {

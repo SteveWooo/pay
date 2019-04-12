@@ -84,7 +84,9 @@ Vue.component('pay', {
 					//todo 刷新列表
 					// that.getPaylistData();
 					// that.switchPayPanel();
-					that.backPage();
+					setTimeout(function(){
+						that.backPage();
+					}, 1500)
 					scope.datas.loading = false;
 				});
 			})
