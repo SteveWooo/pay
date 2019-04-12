@@ -140,7 +140,8 @@ Vue.component("hello", {
 						padding : 5px 5px 5px 5px;
 						width : 90%;
 						margin-left : 5%;
-						border-radius:10px">
+						border-radius:10px;
+						background-color:#fff">
 						我是穷逼，人穷志短的傻逼，我自卑，我虚荣；我没钱，没梦想。我穷困潦倒，我失意颓废，我的保时捷加不起油，我的鞋柜放不完AJ，我人生一片灰暗。放下我卑贱的自尊，只求大佬您用金钱羞辱我，践踏我！
 					</div>
 				</v-flex>
