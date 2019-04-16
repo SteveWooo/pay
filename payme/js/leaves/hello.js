@@ -26,7 +26,7 @@ keke.leaves.hello = {
 		pay : {
 			show : false,
 			form : {
-				total_fee : 5000,
+				total_fee : 500,
 
 				name : '',
 				email : '',
