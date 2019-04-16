@@ -244,11 +244,11 @@ Vue.component("hello", {
 							<v-flex xs3 class="pay-btn">
 								<div
 									class="checkbox"
-									@click="changePay(5000)">
+									@click="changePay(500)">
 									5元
 								</div>
 								<div
-									v-if="data.panels.pay.form.total_fee==5000"
+									v-if="data.panels.pay.form.total_fee==500"
 									class="actived">
 									√
 								</div>
@@ -256,11 +256,11 @@ Vue.component("hello", {
 							<v-flex xs3 class="pay-btn">
 								<div
 									class="checkbox"
-									@click="changePay(10000)">
+									@click="changePay(1000)">
 									10元
 								</div>
 								<div
-									v-if="data.panels.pay.form.total_fee==10000"
+									v-if="data.panels.pay.form.total_fee==1000"
 									class="actived">
 									√
 								</div>
@@ -268,11 +268,11 @@ Vue.component("hello", {
 							<v-flex xs3 class="pay-btn">
 								<div
 									class="checkbox"
-									@click="changePay(50000)">
+									@click="changePay(5000)">
 									50元
 								</div>
 								<div
-									v-if="data.panels.pay.form.total_fee==50000"
+									v-if="data.panels.pay.form.total_fee==5000"
 									class="actived">
 									√
 								</div>
