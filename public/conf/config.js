@@ -46,8 +46,7 @@ function loadInitFile(mode){
 //初始化微信jssdk
 function initWx(){
 
-}
-	
+}	
 
 if(!keke.getQuery('openid')){
 	location.href = 'https://payjs.cn/api/openid?mchid='+keke.config.mchid+'&callback_url=' +
