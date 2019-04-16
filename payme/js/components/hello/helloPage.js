@@ -164,7 +164,7 @@ Vue.component("hello", {
 				line-height : 50px;"
 
 				@click="switchPayPanel">
-				一健蹂躏
+				一键蹂躏
 			</div>
 		</v-flex>
 
