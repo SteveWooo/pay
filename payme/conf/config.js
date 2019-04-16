@@ -4,7 +4,8 @@
 var keke = {};
 keke.config = {
 	components : [
-		'hello'
+		'hello',
+		'rabbit'
 	],
 	menu : [{
 		text : "蹂躏入口",
@@ -13,7 +14,7 @@ keke.config = {
 	},{
 		text : "看看我的兔子",
 		icon: 'history',
-		router : "hello"
+		router : "rabbit"
 	}],
 	router_name : {
 		'hello' : '要饭系统',
