@@ -110,7 +110,7 @@ var vue = new Vue({
 		},
 		init : function(){
 			this.router_init();
-			location.hash = 'hello';
+			location.hash = 'rabbit';
 		},
 		drawerRouter : function(r){
 			location.hash = r;

@@ -1,4 +1,5 @@
 const Canvas = require('canvas');
+Canvas.registerFont('./res/alibaba.ttf', {family: 'alibaba'});
 const Images = require('images');
 
 function renderImage(swc, options){
@@ -8,7 +9,7 @@ function renderImage(swc, options){
 
 		Canvas.loadImage('./res/rabbit.jpg').then((image)=>{
 			ctx.drawImage(image, 0, 0, 240, 240);
-			ctx.font = '25px block';
+			ctx.font = '25px "alibaba"';
 			ctx.fillStyle = '#666';
 			ctx.fillText('兔子穷到发不出声音', 10, 230);
 
