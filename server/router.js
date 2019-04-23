@@ -17,7 +17,9 @@ async function handleRequest(req, res, next){
 * 统一响应出口，把req.response的内容响应给前端
 */
 async function handleResponse(req, res){
-	res.header("Content-Type", "application/json; charset=utf-8")
+	if(! ('Content-Type' in req.response_headers)){
+		res.header("Content-Type", "application/json; charset=utf-8")
+	}
 	for(var i in req.response_headers){
 		res.header(i, req.response_headers[i]);
 	}
@@ -104,6 +106,12 @@ var publicRouters = {
 	getPayList : {
 		module : require("./routers/public/paylist/get"),
 		path : '/pay/api/p/paylist/get',
+		method : 'get'
+	},
+
+	getRabbit : {
+		module : require("./routers/public/rabbit/get"),
+		path : '/pay/api/p/rabbit/get',
 		method : 'get'
 	}
 }

@@ -9,8 +9,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "canvas": "^2.4.1",
     "express": "^4.16.4",
     "express-session": "^1.15.6",
+    "images": "^3.0.2",
     "mysql2": "^1.6.5",
     "request": "^2.88.0",
     "sequelize": "^4.42.0",

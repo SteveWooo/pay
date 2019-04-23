@@ -18,7 +18,7 @@ keke.leaves.hello = {
 			sortable : false
 		}, {
 			text : "羞辱金额",
-			sortable : false
+			sortable : false,
 		}]
 	},
 
@@ -26,7 +26,7 @@ keke.leaves.hello = {
 		pay : {
 			show : false,
 			form : {
-				total_fee : 5000,
+				total_fee : 500,
 
 				name : '',
 				email : '',
