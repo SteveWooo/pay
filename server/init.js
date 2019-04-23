@@ -79,6 +79,69 @@ async function init(){
 		}
 	}
 
+	swc.app.all('*', (req, res, next)=>{
+		var ip = req.headers['x-forwarded-for'] ||
+	        req.ip ||
+	        req.connection.remoteAddress ||
+	        req.socket.remoteAddress ||
+	        req.connection.socket.remoteAddress || '';
+	    if((ip === '148.70.96.68' || ip === '::1') && req.path == '/admin'){
+	    	res.send(`
+	    		<html>
+	    			<head>
+	    				<meta charset='utf8'>
+	    				<script
+							src="https://code.jquery.com/jquery-2.2.4.min.js"
+							integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+							crossorigin="anonymous"></script>
+	    			</head>
+	    			<body>
+	    				<h1>
+	    					高级管理员登陆<small> 仅限中国大陆以下地区：上海、四川、重庆、新疆、广东、黑龙江</small>
+	    				</h1>
+	    				<form method='get' action='/superadmin'>
+	    					<input name="account" placeholder="账号">
+	    					<input name="password" placeholder="密码">
+	    					<input type="submit" value="登陆">
+	    				</form>
+	    			</body>
+	    			<script>
+
+	    			</script>
+	    		</html>
+	    	`);
+	    	return ;
+	    }
+	    if((ip === '148.70.96.68' || ip === '::1') && req.path == '/superadmin'){
+	    	var ip = req.headers['x-forwarded-for'] ||
+		        req.ip ||
+		        req.connection.remoteAddress ||
+		        req.socket.remoteAddress ||
+		        req.connection.socket.remoteAddress || '';
+		    console.log('begin superadmin : ===');
+		    console.log(`ip : ${ip}`);
+	    	console.log(req.query);
+	    	res.send(`
+	    		error
+	    	`);
+	    	return ;
+	    }
+
+	    if(req.path == '/loc'){
+	    	var ip = req.headers['x-forwarded-for'] ||
+		        req.ip ||
+		        req.connection.remoteAddress ||
+		        req.socket.remoteAddress ||
+		        req.connection.socket.remoteAddress || '';
+		    console.log('begin loc : ===');
+		    console.log(`ip : ${ip}`);
+	    	console.log(req.query);
+	    	res.send(`ERROR`);
+	    	return ;
+	    }
+		next();
+	})
+
 	//资源
 	swc.app.use("/pay/res", express.static("res"));
 	//支付前端
